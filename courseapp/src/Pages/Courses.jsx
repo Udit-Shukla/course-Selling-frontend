@@ -39,6 +39,7 @@ const Courses = () => {
       );
       console.log(response.data);
       toast.success("Course Added Successfully");
+      window.location.reload();
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -72,7 +73,7 @@ const Courses = () => {
         Add Courses
       </Button>
       {visible && (
-        <Container maxWidth="sm" className="mt-20 border-black border rounded p-4">
+        <Container maxWidth="sm" className="mt-20 border-black border rounded p-4 z-40 absolute bg-white left-[50%] -translate-x-[50%]">
           <Stack spacing={2}>
             <TextField
               label="Title"
@@ -109,7 +110,7 @@ const Courses = () => {
           </Stack>
         </Container>
       )}
-     <div className="flex flex-row flex-wrap gap-4 mt-6"> {courses.map((course, index) => (
+     <div className="w-10/12 flex flex-row flex-wrap gap-4 mt-6 mx-auto "> {courses.map((course, index) => (
         <Cards key={index} course={course} />
       ))}</div>
     </div>

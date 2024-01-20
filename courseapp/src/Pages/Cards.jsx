@@ -1,20 +1,33 @@
 import React from 'react'
-import{Button, Card, CardContent, Typography} from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+
+
 
 const Cards = (props) => {
+    const navigate = useNavigate();
         return (
-            <Card variant="outlined" sx={{Width:300}}>
-            <CardContent>
-                <Typography variant="h6" color="text.primary">{props.course.title}</Typography>
-                <Typography variant="body2" color="text.secondary" gutterBottom>{props.course.description}</Typography>
-                <Typography variant="body1" color="text.secondary">${props.course.price}</Typography>
-                <div className='flex flex-row gap-4'>
-                <Button variant="contained" color="primary">Buy Now</Button>
-                <Button variant="contained" color="error">Edit</Button>
-                </div>
+            <div className='flex flex-col border border-black rounded-lg justify-around  p-2 w-[300px] hover:shadow-xl hover:scale-105 transition-all duration-100 ease-in mb-2 cursor-pointer '>
+            <img src={props.course.imageLink} alt="course" className="w-full h-[200px] object-cover"/>
 
-            </CardContent>
-            </Card>
+            <div className="flex flex-col p-4">
+                <h1 className="text-2xl font-semibold mb-4">{props.course.title}</h1>
+                <p className="text-sm  text-slate-600 font-medium">{props.course.description}</p>
+
+                <p>{props.course.courseId}</p>
+
+                <div className="flex flex-row justify-between mt-4">
+                    <h1 className="text-lg font-semibold">Rs. {props.course.price}</h1>
+
+                    {
+                        !props.button ? <button className="bg-red-500 text-white px-4 py-1 rounded" onClick={()=>{navigate(`/courses/${props.course.courseId}`)}}>View</button> : null
+                    }
+
+                </div>
+            </div>
+        </div>
+
+
+
     )
 }
 
