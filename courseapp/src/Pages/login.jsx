@@ -33,7 +33,7 @@ const Login = () => {
     <Container maxWidth="sm" className='mt-20 border-black border rounded p-4'>
         <Stack spacing={2}>
           <TextField  label="Username" variant="outlined" onChange={(e)=>{setUserName(e.target.value)}}/>
-          <TextField  label="Password" variant="outlined" onChange={(e)=>{setPassword(e.target.value)}}/>
+          <TextField  label="Password" type='password' variant="outlined" onChange={(e)=>{setPassword(e.target.value)}}/>
           <Button variant="contained" className=' w-fit' onClick={submitHandler}>Login</Button>
         </Stack>
       </Container>

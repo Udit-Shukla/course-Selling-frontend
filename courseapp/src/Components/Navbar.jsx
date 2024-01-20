@@ -2,8 +2,11 @@ import { Button, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+ 
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+ 
+ 
   useEffect(() => {
     console.log("token received after login", token);
   }, [token]);
@@ -11,10 +14,16 @@ const Navbar = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+ 
+ 
   const username = localStorage.getItem("username");
+ 
+ 
   return (
     <div className="flex flex-row justify-between w-10/12 mx-auto mt-4">
+     
       {/* LOGO */}
+     
       <div className="flex flex-row">
         <Link to="/">
           <Typography variant="h6" className="flex-grow">
@@ -45,8 +54,6 @@ const Navbar = () => {
           </Link>
         </div>
       )}
-
-      {/* Buttons */}
     </div>
   );
 };
